@@ -2,21 +2,6 @@
 
 This project demonstrates the deployment of a simple Flask web application using Docker, AWS EC2, and Terraform. The project includes Dockerization of the application, Terraform configurations for infrastructure provisioning, and (soon-to-be-added) CI/CD pipeline integration.
 
-## Project Structure
-
-├── .github
-│   └── workflows
-│       └── deploy.yml
-├── ec2.tf
-├── main.tf
-├── my_docker_image
-│   ├── app.py
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   └── templates
-│       └── index.html
-├── outputs.tf
-├── security_groups.tf
 
 ## Prerequisites
 
@@ -73,20 +58,20 @@ The CI/CD pipeline is implemented using GitHub Actions to automate the build, te
 Pipeline Steps:
 
 ### Build Docker Image:
-The pipeline builds a Docker image of the Flask application.
-The image is pushed to Docker Hub.
+- The pipeline builds a Docker image of the Flask application.
+- The image is pushed to Docker Hub.
 
 ### Deploy Using Terraform:
-Terraform provisions the AWS infrastructure and deploys the Dockerized Flask application.
+- Terraform provisions the AWS infrastructure and deploys the Dockerized Flask application.
 
 Workflow File (.github/workflows/deploy.yml)
 
 Configuring Secrets:
 
 ### Docker Hub:
-Add DOCKER_USERNAME and DOCKER_PASSWORD in GitHub > Settings > Secrets and variables > Actions.
+- Add DOCKER_USERNAME and DOCKER_PASSWORD in GitHub > Settings > Secrets and variables > Actions.
 ### AWS Credentials:
-Add AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with IAM user credentials.
+- Add AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with IAM user credentials.
 
 ### Running the Pipeline:
 
