@@ -1,6 +1,6 @@
 # Flask Application Deployment with Docker, AWS, and Terraform
 
-This project demonstrates the deployment of a simple Flask web application using Docker, AWS EC2, and Terraform. The project includes Dockerization of the application, Terraform configurations for infrastructure provisioning, and (soon-to-be-added) CI/CD pipeline integration.
+This project demonstrates the deployment of a simple Flask web application using Docker, AWS EC2, and Terraform. The project includes Dockerization of the application, Terraform configurations for infrastructure provisioning, and CI/CD pipeline integration.
 
 
 ## Prerequisites
