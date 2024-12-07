@@ -21,11 +21,11 @@ Before running this project, ensure you have the following installed:
 ```bash
 cd my_docker_image
 ```
-
+2. Build the Docker image
 ```bash
 docker build -t flask-app .
 ```
-
+3. Run the Docker container
 ```bash
 docker run -p 5000:5000 flask-app
 ```
