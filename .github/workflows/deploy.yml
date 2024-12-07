@@ -1,64 +1,64 @@
-name: Deploy Flask App to AWS
+# name: Deploy Flask App to AWS
 
-on:
-  push:
-    branches:
-      - main  # Trigger the workflow on changes to the main branch
+# on:
+#   push:
+#     branches:
+#       - main  # Trigger the workflow on changes to the main branch
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-    # 1. Checkout the code
-    - name: Checkout Code
-      uses: actions/checkout@v3
+#     steps:
+#     # 1. Checkout the code
+#     - name: Checkout Code
+#       uses: actions/checkout@v3
 
-    # 2. Set up Python
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.11"
+#     # 2. Set up Python
+#     - name: Set up Python
+#       uses: actions/setup-python@v4
+#       with:
+#         python-version: "3.11"
 
-    # 3. Install dependencies
-    - name: Install Dependencies
-      run: |
-        cd my_docker_image
-        pip install -r requirements.txt
+#     # 3. Install dependencies
+#     - name: Install Dependencies
+#       run: |
+#         cd my_docker_image
+#         pip install -r requirements.txt
     
-    ### I Skipping these steps because already pushed my web app
-    ### Uncomment the 4,5 points configs to build and push
+#     ### I Skipping these steps because already pushed my web app
+#     ### Uncomment the 4,5 points configs to build and push
 
-    # 4. Build Docker image
-    #- name: Build Docker Image
-    #  run: |
-    #   cd my_docker_image
-    #   docker build -t flask-app .
+#     # 4. Build Docker image
+#     #- name: Build Docker Image
+#     #  run: |
+#     #   cd my_docker_image
+#     #   docker build -t flask-app .
 
-    # 5. Push Docker image to Docker Hub
-    #- name: Push Docker Image
-    # env:
-    #   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-    #   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-    # run: |
-    #   echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-    #   docker tag flask-app:latest <your-dockerhub-username>/flask-app:latest
-    #   docker push <your-dockerhub-username>/flask-app:latest
+#     # 5. Push Docker image to Docker Hub
+#     #- name: Push Docker Image
+#     # env:
+#     #   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+#     #   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+#     # run: |
+#     #   echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+#     #   docker tag flask-app:latest <your-dockerhub-username>/flask-app:latest
+#     #   docker push <your-dockerhub-username>/flask-app:latest
 
-    # 6. Deploy to AWS using Terraform
-    - name: Set up Terraform
-      uses: hashicorp/setup-terraform@v2
-      with:
-        terraform_version: latest
+#     # 6. Deploy to AWS using Terraform
+#     - name: Set up Terraform
+#       uses: hashicorp/setup-terraform@v2
+#       with:
+#         terraform_version: latest
 
 
-    - name: Terraform Init
-      working-directory: ./
-      run: terraform init
+#     - name: Terraform Init
+#       working-directory: ./
+#       run: terraform init
 
-    - name: Terraform Apply
-      working-directory: ./
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform apply -auto-approve
+#     - name: Terraform Apply
+#       working-directory: ./
+#       env:
+#         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#       run: terraform apply -auto-approve
