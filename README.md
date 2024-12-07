@@ -73,22 +73,22 @@ The CI/CD pipeline is implemented using GitHub Actions to automate the build, te
 Pipeline Steps:
 
 ### Build Docker Image:
-        The pipeline builds a Docker image of the Flask application.
-        The image is pushed to Docker Hub.
+The pipeline builds a Docker image of the Flask application.
+The image is pushed to Docker Hub.
 
 ### Deploy Using Terraform:
-        Terraform provisions the AWS infrastructure and deploys the Dockerized Flask application.
+Terraform provisions the AWS infrastructure and deploys the Dockerized Flask application.
 
 Workflow File (.github/workflows/deploy.yml)
 
 Configuring Secrets:
 
 ### Docker Hub:
-        Add DOCKER_USERNAME and DOCKER_PASSWORD in GitHub > Settings > Secrets and variables > Actions.
+Add DOCKER_USERNAME and DOCKER_PASSWORD in GitHub > Settings > Secrets and variables > Actions.
 ### AWS Credentials:
-        Add AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with IAM user credentials.
+Add AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with IAM user credentials.
 
-Running the Pipeline:
+### Running the Pipeline:
 
 - Push changes to the main branch.
 - Monitor the workflow in the Actions tab.
