@@ -28,9 +28,11 @@ docker build -t flask-app .
 3. Run the Docker container
 ```bash
 docker run -p 5000:5000 flask-app
+
+# Access the app at http://localhost:5000
 ```
 
-Access the app at http://localhost:5000 .
+ 
 
 ## Deploy Using Terraform
 
