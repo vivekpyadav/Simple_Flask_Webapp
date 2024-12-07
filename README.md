@@ -18,30 +18,36 @@ Before running this project, ensure you have the following installed:
 ## Steps to Deploy in Docker
 
 1. Navigate to the `my_docker_image` directory:
-   ```bash
-   cd my_docker_image ```
+```bash
+cd my_docker_image
+```
 
-   ```bash
-   docker build -t flask-app .```
+```bash
+docker build -t flask-app .
+```
 
-   ```bash
-   docker run -p 5000:5000 flask-app```
+```bash
+docker run -p 5000:5000 flask-app
+```
 
 Access the app at http://localhost:5000 .
 
 ## Deploy Using Terraform
 
 1. Initialize terraform
-    ```bash
-    terraform init```
+```bash
+terraform init
+```
+2. Validate the configuration
+```bash
+terraform validate
+```
+3. Apply the Terraform configuration to deploy resources
+```bash
+# Remove -auto-approve if you want to check.
 
-    ```bash
-    terraform validate```
-
-    ```bash
-    # Remove -auto-approve if you want to check.
-
-    terraform apply -auto-approve```
+terraform apply -auto-approve
+```
 
 
 
