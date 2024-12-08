@@ -51,8 +51,7 @@ terraform validate
 
 terraform apply -auto-approve
 ```
-
-3. CI/CD Pipeline Implementation
+## CI/CD Pipeline Implementation
 
 The CI/CD pipeline is implemented using GitHub Actions to automate the build, test, and deployment process.
 Pipeline Steps:
